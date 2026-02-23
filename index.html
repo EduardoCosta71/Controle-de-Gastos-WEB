@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Controle de Gastos</title>
+    <link rel="stylesheet" href="{{ url_for ('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="conteiner">
+    <h1>Controle de Gastos &#128176</h1>
+
+    <form action="/adicionar" method="post">
+        <input type="number" step="0.01" name="valor" placeholder="valor do gasto" required>
+        <input type="text" name="descricao" placeholder="descricao" required>
+        <button class="btn-green"> + Adicionar Gasto</button>
+    </form>
+
+    <br>
+
+    <a href="/resumo">
+        <button class="btn-blue">Ver resumo</button>
+    </a>
+    </div>
+</body>
+</html>

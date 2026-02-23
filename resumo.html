@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Resumo</title>
+    <link rel="stylesheet" href="{{ url_for ('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="card">
+
+    <h1>Resumo dos Gastos</h1>
+    <hr>
+
+{% if vazio %}
+
+    <p class="N">Nenhum gasto cadastrado!</p>
+
+{% else %}
+
+<div class="Lista">
+<p><strong>Total:</strong> R$ {{ total }}</p>
+<p><strong>Média:</strong> R$ {{ media }}</p>
+<p><strong>Maior gasto:</strong> R$ {{ maior }}</p>
+<p><strong>Menor gasto:</strong> R$ {{ menor }}</p>
+</div>
+
+<h3>Lista de Gastos:</h3>
+
+<ul>
+  {% for g in gastos %}
+  <li class="list">
+    {{ g["descricao"] }} - R$ {{ g["valor"] }}
+    <a href="/editar/{{ loop.index0 }}">Editar</a>
+    <a href="/excluir/{{ loop.index0 }}">Excluir</a>
+    {% endfor %}
+  </li>
+{% endif %}
+
+<br>
+
+<div class="botoes">
+
+<a href="/">
+<button class="btn-red">Voltar</button>
+</a>
+
+<a href="/apagar">
+<button class="btn-gray">Apagar tudo!</button>
+</a>
+
+</div>
+
+</div>
+</body>
+</html>
