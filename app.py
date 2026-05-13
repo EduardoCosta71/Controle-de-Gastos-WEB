@@ -10,8 +10,8 @@ app = Flask(__name__)
 def conectar_banco ():
         return pyodbc.connect(
             "DRIVER={SQL Server};"   # Driver do SQL Server
-            "SERVER=localhost\\SQLEXPRESS;"   # Servidor local 
-            "DATABASE=ControleGastosDB;"   # Nome do Banco
+            "SERVER=;"   # Servidor local 
+            "DATABASE=;"   # Nome do Banco
             "Trusted_Connection=yes;"  # Authenticacao do Windows
         )
 
